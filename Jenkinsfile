@@ -22,5 +22,19 @@ pipeline{
         }
 
         // Add the "Deploy" stage here
+
+
+
+stage('Release') {
+    steps {
+        sh '''
+            oc project ptfwmm-greetings
+            oc start-build greeting-service  --follow --wait
+        '''
+    }
+}
+
+
+
     }
 }
